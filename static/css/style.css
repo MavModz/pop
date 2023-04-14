@@ -1,0 +1,102 @@
+.bg-nav {
+    background: #c31432;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+@keyframes input-focus {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.01);
+    }
+}
+
+.animated-input:focus {
+    animation-name: input-focus;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+
+.navbar-custom {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navbar-custom .nav-link {
+    margin-right: 10px;
+}
+
+
+/* Customize the navigation bar */
+.navbar-custom {
+    border-radius: 0;
+    margin-bottom: 30px;
+}
+
+/* Customize the links in the navigation bar */
+.navbar-custom .nav-link {
+    color: #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Customize the logout button */
+.navbar-custom .btn-outline-primary {
+    border-radius: 20px;
+}
+
+/* Customize the cards */
+.card {
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.card-body h2 {
+    color: #fff;
+}
+
+.card-body h4 {
+    color: #fff;
+}
+
+/* Customize the table */
+.table {
+    margin-bottom: 30px;
+}
+
+/* Customize the "Add New" button */
+.btn-danger {
+    border-radius: 20px;
+}
+
+.card-color-1 {
+    background: linear-gradient(94.38deg,#008CE4 -1.08%,#00AF9E 96.88%)
+  }
+  
+  .card-color-2 {
+    background: linear-gradient(95.13deg, #ed7c58 -19.76%, #f56666 108.11%);
+  }
+  
+  .card-color-3 {
+    background: linear-gradient(95.13deg, #ed7c58 -19.76%, #f56666 108.11%);
+  }
+  
+  .card-color-4 {
+    background-color: #B0BEC5;
+  }

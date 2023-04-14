@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Register</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body class="bg-nav">
+    <nav class="navbar">
+        <a href="" class="navbar-brand text-light">Loan App</a>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="text-light display-4 mt-100" style="font-size: 80px;">Get you Credit Score Now!</h1>
+            </div>
+            <div class="col-md-4">
+                <div class="card mt-100">
+                    <div class="card-body">
+                        <form class="form" method="post" action="/add_user">
+                            <label>Name</label><br>
+                            <input required type="text" class="form-control animated-input" name="uname"><br>
+                            <label>Email</label><br>
+                            <input required type="email" class="form-control animated-input" name="uemail"><br>
+                            <label>Password</label><br>
+                            <input required type="password" class="form-control animated-input"
+                                name="upassword"><br><br>
+                            <input id="register-btn" type="submit" class="btn btn-primary btn-lg w-100"
+                                value="Register">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var registerBtn = document.getElementById("register-btn");
+        registerBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            var form = event.target.form;
+            var name = form.uname.value;
+            var email = form.uemail.value;
+            var password = form.upassword.value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == "success") {
+                        alert("Registration successful!");
+                        setTimeout(function () {
+                            window.location.href = "/login";
+                        }, 1000); // 1 second delay
+                    } else {
+                        alert("Registration failed. Email already exists!");
+                        location.reload(); // add this line to reload the page
+                    }
+                }
+            };
+            xhttp.open("POST", "/add_user", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("uname=" + name + "&uemail=" + email + "&upassword=" + password);
+        });
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

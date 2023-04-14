@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+
+    <!-- The popup container -->
+    <div id="popup-container" class="popup-container">
+        <!-- The popup content -->
+        <div class="popup-content">
+            <img src="{{ image_url }}" alt="Background Image" class="popup-icon">
+            <span class="close-button" onclick="hidePopup()">&times;</span>
+            <p class="popup-text">User Registerd Successfully</p>
+            <button class="cta-button center">Login</button>
+        </div>
+    </div>
+
+    <!-- The popup container JS -->
+    <script>
+        // Get the popup container
+        var popupContainer = document.getElementById('popup-container');
+
+        // Function to show the popup
+        function showPopup() {
+            popupContainer.style.display = 'block';
+        }
+
+        // Function to hide the popup
+        function hidePopup() {
+            popupContainer.style.display = 'none';
+        }
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
