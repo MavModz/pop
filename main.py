@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, jsonify, render_template, request, redirect, session, url_for
 import mysql.connector
 import os
 
@@ -47,11 +47,13 @@ def login_validation():
     cursor.execute(""" SELECT * FROM `users` where `email` LIKE '{}' AND `password` LIKE '{}' """
                    .format(email, password))
     users = cursor.fetchall()
+    print(users)
     if len(users) > 0:
         session['user_id'] = users[0][0]
-        return redirect('/dashboard')
+        print('Hello World!')
+        return jsonify({'status': 'success'})  # Return success status as JSON response
     else:
-        return redirect('/')
+        return jsonify({'status': 'failure'})  # Return failure status as JSON response
 
 
 @app.route('/add_user', methods=['POST'])
@@ -60,33 +62,31 @@ def add_user():
     email = request.form.get('uemail')
     password = request.form.get('upassword')
 
-    cursor.execute(""" SELECT `email` From `users` """ .format(email))
+    cursor.execute("SELECT `email` FROM `users`")
     users = cursor.fetchall()
-    print(len(users))
+    print(users)
     print(email)
 
-    if (len(users) == 0):
-        cursor.execute("""INSERT INTO `users` (`user_id`, `name`, `email`, `password`) VALUES (NULL, '{}', '{}', '{}')""". format(name, email, password))
-        conn.commit()
-        print('if loop')
-        return "success"
-    elif (users[0][0] != email):
-        cursor.execute("""INSERT INTO `users` (`user_id`, `name`, `email`, `password`) VALUES (NULL, '{}', '{}', '{}')""". format(name, email, password))
-        conn.commit()
-        print('elif loop')
-        return "success"
-    else:
-        print('else loop')
+    if any(user[0] == email for user in users):
+        print('Email already exists!')
         return "fail"
+    else:
+        cursor.execute("""INSERT INTO `users` (`user_id`, `name`, `email`, `password`) VALUES (NULL, '{}', '{}', '{}')""".format(name, email, password))
+        conn.commit()
+        print('Registration successful!')
+        return "success"
 
 @app.route('/logout')
 def logout():
     session.pop('user_id')
     return redirect('/')
 
+
 @app.route('/new_login')
 def new_login():
-    return render_template('/new_login.html')
+        return render_template('new_login.html')
+
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
