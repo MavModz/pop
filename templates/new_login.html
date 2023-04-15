@@ -1,65 +1,10 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Login</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/iofrm-style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/iofrm-theme29.css') }}">
-</head>
-
-<body>
-    <div class="form-body without-side">
-        <div class="website-logo">
-            <a href="/">
-                <div class="logo">
-                    <img class="logo-size" src="{{ url_for('static', filename='img/logo-light.svg') }}">
-                </div>
-            </a>
-        </div>
-        <div class="row">
-            <div class="img-holder">
-                <div class="bg"></div>
-                <div class="info-holder">
-                    <img src="{{ url_for('static', filename='img/graphic3.svg') }}">
-                </div>
-            </div>
-            <div class="form-holder">
-                <div class="form-content">
-                    <div class="form-item">
-                        <h3>Login to Account</h3>
-                        <p>Access to the most powerfull tool for your Results</p>
-                        <form method="post" action="/login_validation">
-                            <input type="email" class="form-control" name="email" required>
-                            <input type="password" class="form-control" name="password" required>
-                            <div class="form-button">
-                                <button id="submit" type="submit" class="ibtn">Login</button> <a href="/forget.html">Forgot Password?</a>
-                            </div>
-                        </form>
-                        <div class="page-links">
-                            <a href="/register.html">Register New Account</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-
-</html> -->
-
-<!DOCTYPE html>
-<html>
-
-<head>
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
