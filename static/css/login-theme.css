@@ -35,6 +35,7 @@ body {
     box-sizing: border-box;
     background-color: #FFFFFF12;
     border: 1px solid rgba(0, 149, 255, 0);
+    border-radius: 6px;
 }
 
 .login-container button[type="submit"] {
@@ -109,6 +110,24 @@ body {
 
 .login-container a:hover {
     text-decoration: underline;
+}
+
+.page-links {
+    margin-top: 20px;
+}
+
+.page-links a {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+    transition: text-decoration-color 0.25s ease-in-out;
+}
+
+.page-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #06436e;
 }
 
 .svg-container {
