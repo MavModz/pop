@@ -86,17 +86,79 @@
 }
 
 .card-color-1 {
-    background: linear-gradient(94.38deg,#008CE4 -1.08%,#00AF9E 96.88%)
-  }
-  
-  .card-color-2 {
+    background: linear-gradient(94.38deg, #008CE4 -1.08%, #00AF9E 96.88%)
+}
+
+.card-color-2 {
     background: linear-gradient(95.13deg, #ed7c58 -19.76%, #f56666 108.11%);
-  }
-  
-  .card-color-3 {
+}
+
+.card-color-3 {
     background: linear-gradient(95.13deg, #ed7c58 -19.76%, #f56666 108.11%);
-  }
-  
-  .card-color-4 {
+}
+
+.card-color-4 {
     background-color: #B0BEC5;
-  }
+}
+
+/* NOTIFICATION */
+
+.notification {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    width: max-content;
+    padding: 20px 15px;
+    border-radius: 4px;
+    background-color: #0f202c;
+    color: #f6f5f9;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(30px);
+    opacity: 0;
+    visibility: hidden;
+    animation: fade-in 4s linear forwards;
+}
+
+.notification_progress {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    width: calc(100% - 10px);
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-image: linear-gradient(to right, #539bdb, #3250bf);
+    border-radius: inherit;
+    animation: load 3s 0.25s linear forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+    }
+
+    5% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes load {
+    to {
+        transform: scaleX(1);
+    }
+}
