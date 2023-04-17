@@ -27,13 +27,45 @@
     }
 }
 
-.animated-input:focus {
-    animation-name: input-focus;
-    animation-duration: 0.2s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+.card-body .btn:hover {
+    animation-name: shine;
+    animation-duration: 200ms;
 }
 
+@keyframes shine {
+    0% {
+        background: linear-gradient(30deg,
+                hsl(260, 85%, 95%) 0%,
+                hsl(206, 100%, 58%) 25%);
+    }
+
+    25% {
+        background: linear-gradient(30deg,
+                hslhsl(210, 92%, 14%) 0%,
+                hsl(260, 85%, 95%) 25%,
+                hsl(206, 100%, 58%) 50%);
+    }
+
+    50% {
+        background: linear-gradient(30deg,
+                hsl(206, 100%, 58%) 0%,
+                hsl(260, 85%, 95%) 50%,
+                hsl(206, 100%, 58%) 75%);
+    }
+
+    75% {
+        background: linear-gradient(30deg,
+                hsl(206, 100%, 58%) 0%,
+                hsl(260, 85%, 95%) 75%,
+                hsl(206, 100%, 58%) 100%);
+    }
+
+    100% {
+        background: linear-gradient(30deg,
+                hsl(206, 100%, 58%) 0%,
+                hsl(260, 85%, 95%) 100%);
+    }
+}
 
 .navbar-custom {
     margin-top: 10px;
