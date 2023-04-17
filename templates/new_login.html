@@ -91,6 +91,15 @@
             xhttp.send("uname=" + name + "&uemail=" + email + "&upassword=" + password);
         });
 
+        // Function to display custom alert box with given status and message
+        function showAlert(status, message) {
+            var alertBox = document.createElement("div");
+            alertBox.innerHTML = message;
+            alertBox.classList.add("custom-alert");
+            alertBox.classList.add(status);
+            document.body.appendChild(alertBox);
+        }
+
     </script>
 </body>
 
