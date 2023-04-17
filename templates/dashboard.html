@@ -135,7 +135,7 @@
     </div>
 
     <div class="notification" id="notification">
-        <p>Welcome back, Julio</p>
+        <p>Welcome back</p>
         <span class="notification_progress"></span>
     </div>
 
@@ -150,6 +150,21 @@
 
     <script>
         var notificationElement = document.getElementById('notification');
-        notificationElement.classList.add('fade-in');
+        var userName = "{{ session['user_id'] }}"; // Assuming the user_id is the username retrieved from Flask session
+
+        // Fetch user's name from the database
+        fetch('/get_user_name')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    userName = data.name; // Assuming the name field is 'name' in your database table
+                    var welcomeMessage = "Welcome back, " + userName + "!";
+                    notificationElement.querySelector('p').textContent = welcomeMessage;
+                    notificationElement.classList.add('fade-in');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching user name:', error);
+            });
     </script>
 </body>

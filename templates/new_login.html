@@ -54,6 +54,14 @@
             var name = form.uname.value;
             var email = form.uemail.value;
             var password = form.upassword.value;
+
+            // Email validation using regular expression
+            var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!email.match(emailRegex)) {
+                showAlert("failure", "Please enter a valid email address!");
+                return;
+            }
+
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
