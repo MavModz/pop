@@ -9,10 +9,13 @@ conn = mysql.connector.connect(
     host="localhost", user="root", password="", database="loan_db")
 cursor = conn.cursor()
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
 
 @app.route('/login')
 def login():
@@ -21,11 +24,10 @@ def login():
     else:
         return redirect('/dashboard')
 
-
-@app.route('/register')
-def register():
-    return render_template('register.html')
-
+@app.route('/logout')
+def logout():
+    session.pop('user_id')
+    return redirect('/')
 
 @app.route('/dashboard')
 def dashboard():
@@ -33,7 +35,6 @@ def dashboard():
         return render_template('dashboard.html')
     else:
         return redirect('/login')
-
 
 @app.route('/login_validation', methods=['POST'])
 def login_validation():
@@ -55,8 +56,6 @@ def login_validation():
     else:
         return jsonify({'status': 'failure', 'message': 'Email or password is incorrect!'})  # Return failure status and message as JSON response
 
-
-
 @app.route('/add_user', methods=['POST'])
 def add_user():
     name = request.form.get('uname')
@@ -77,11 +76,6 @@ def add_user():
         print('Registration successful!')
         return "success"
 
-@app.route('/logout')
-def logout():
-    session.pop('user_id')
-    return redirect('/')
-
 @app.route('/get_user_name')
 def get_user_name():
     if 'user_id' in session:
@@ -95,6 +89,12 @@ def get_user_name():
             return jsonify({'success': False, 'message': 'User not found'})
     else:
         return jsonify({'success': False, 'message': 'User not logged in'})    
+
+# Route for admin dashboard
+@app.route('/admin')
+def admin_dashboard():
+    # Render admin dashboard template
+    return render_template('admin_dashboard.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
