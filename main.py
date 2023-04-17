@@ -14,10 +14,6 @@ cursor = conn.cursor()
 def home():
     return render_template('index.html')
 
-@app.route('/popup')
-def popup():
-    return render_template('popup.html')
-
 @app.route('/login')
 def login():
     if 'user_id' not in session:
@@ -95,7 +91,7 @@ def new_login():
 def get_user_name():
     if 'user_id' in session:
         user_id = session['user_id']
-        cursor.execute("SELECT name FROM users WHERE id = %s", (user_id,))
+        cursor.execute("SELECT name FROM users WHERE user_id = %s", (user_id,))
         row = cursor.fetchone()
         if row:
             name = row[0]
