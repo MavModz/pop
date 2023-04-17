@@ -73,7 +73,7 @@
                         document.body.appendChild(successAlert);
                         setTimeout(function () {
                             window.location.href = "/login";
-                        }, 1000); // 1 second delay
+                        }, 1500); // 1.5 second delay
                     } else {
                         // Display custom alert box for failed registration
                         var failureAlert = document.createElement("div");
@@ -82,7 +82,7 @@
                         document.body.appendChild(failureAlert);
                         setTimeout(function () {
                             location.reload();
-                        }, 1000); // 1 second delay
+                        }, 1500); // 1.5 second delay
                     }
                 }
             };
