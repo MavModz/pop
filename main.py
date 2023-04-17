@@ -82,11 +82,6 @@ def logout():
     session.pop('user_id')
     return redirect('/')
 
-
-@app.route('/new_login')
-def new_login():
-        return render_template('new_login.html')
-
 @app.route('/get_user_name')
 def get_user_name():
     if 'user_id' in session:
