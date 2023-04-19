@@ -1,0 +1,69 @@
+/* Custom CSS for Navbar */
+.navbar {
+    background-color: #333; /* Use a dark color */
+    /* Uncomment the following lines to use a gradient color */
+    /* background: linear-gradient(to right, #000000, #333333); */
+    /* background-color: #f8f9fa; */
+    /* Set the background color */
+    padding: 10px;
+    /* Add some padding to the navbar */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    /* Set the font weight of the brand text */
+}
+
+.navbar-toggler-icon {
+    /* Add custom styles to the navbar toggler icon if needed */
+    color: #000;
+    /* Set the color of the toggler icon */
+    font-size: 24px;
+    /* Set the font size of the toggler icon */
+}
+
+/* Custom CSS for Sidebar */
+.sidebar {
+    width: 250px;
+    /* Set the width of the sidebar */
+    background-color: #343a40;
+    /* Set the background color of the sidebar */
+    color: #fff;
+    /* Set the text color of the sidebar */
+    padding-top: 20px;
+    /* Add some padding to the top of the sidebar */
+    position: fixed;
+    /* Fix the position of the sidebar */
+    top: 70px;
+    /* Set the top position to start after the height of the navbar */
+    left: 0;
+    /* Set the left position to 0 */
+    bottom: 0;
+    /* Set the bottom position to 0 */
+}
+
+.side-navbar-nav {
+    flex-direction: column;
+    /* Set the flex direction of the navbar items to column */
+}
+
+.side-nav-link {
+    padding: 10px 20px;
+    /* Add some padding to the navbar links */
+}
+
+/* Custom CSS for Profile Image */
+.profile-image {
+    width: 30px;
+    /* Set the width of the profile image */
+    height: 30px;
+    /* Set the height of the profile image */
+    border-radius: 50%;
+    /* Set the border radius to make it circular */
+    object-fit: cover;
+    /* Set the object-fit property to cover for image scaling */
+}
+
+.fas.fa-bell {
+    font-size: 1.05em; /* set your desired font size here */
+}

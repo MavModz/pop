@@ -1,58 +1,76 @@
-<!doctype html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <title>Admin Dashboard</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Dashboard</title>
+        <!-- Include Bootstrap CSS -->
+        <!-- Include Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Include Font Awesome CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+        <!-- <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css" /> -->
+        <link href="{{url_for('static', filename='css/admin_dashboard.css')}}" rel="stylesheet" type="text/css" />
+    </head>
 
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="#">
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar Brand</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="bellDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bellDropdown">
+                            <a class="dropdown-item" href="#">Notification 1</a>
+                            <a class="dropdown-item" href="#">Notification 2</a>
+                            <a class="dropdown-item" href="#">Notification 3</a>
+                            <a class="dropdown-item" href="#">Notification 4</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="profileDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{ url_for('static', filename='img/user-2.jpg') }}" alt="Profile Image"
+                                class="profile-image">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div> 
+        </nav>
 
-    <link rel="stylesheet" href="{{url_for('static', filename='plugins/jvectormap/jquery-jvectormap-2.0.2.css')}}">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <nav class="side-navbar">
+                <ul class="side-navbar-nav">
+                    <li class="side-nav-item">
+                        <a class="side-nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a class="side-nav-link" href="#">Analytics</a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a class="side-nav-link" href="#">Files</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
-    <!-- App css -->
-    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{url_for('static', filename='css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{url_for('static', filename='css/metisMenu.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{url_for('static', filename='css/admin_dashboard.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{url_for('static', filename='css/jquery-ui.min.css')}}" rel="stylesheet">
-    <link href="{{url_for('static', filename='css/app.min.css')}}" rel="stylesheet" type="text/css" />
-
-</head>
-
-<body>
-
-    
-
-    <!-- jQuery  -->
-    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/metismenu.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/waves.js')}}"></script>
-    <script src="{{url_for('static', filename='js/feather.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/jquery.slimscroll.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/jquery-ui.min.js')}}"></script>
-
-    <script src="{{url_for('static', filename='plugins/moment/moment.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/apexcharts/apexcharts.min.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/jvectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/flot-chart/jquery.canvaswrapper.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/flot-chart/jquery.colorhelpers.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/flot-chart/jquery.flot.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/flot-chart/jquery.flot.saturated.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/flot-chart/jquery.flot.browser.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/flot-chart/jquery.flot.drawSeries.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/flot-chart/jquery.flot.uiConstants.js')}}"></script>
-    <script src="{{url_for('static', filename='plugins/flot-chart/jquery.flot-dataType.js')}}"></script>
-    <script src="{{url_for('static', filename='pages/jquery.crm_dashboard.init.js')}}"></script>
-
-    <!-- App js -->
-    <script src="{{url_for('static', filename='js/app.js')}}"></script>
-
-</body>
-
-</html>
+        <!-- Include Bootstrap and Font Awesome JS files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body
