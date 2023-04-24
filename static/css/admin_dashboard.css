@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 
-/* ========================== ROOT VARIABLES ========================== */
+/* ========================== ROOT VARIABLES LIGHT THEME========================== */
 
 :root {
     --color-primary: #7380ec;
@@ -24,6 +24,16 @@
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
 
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+/* ========================== ROOT VARIABLES LIGHT THEME========================== */
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-dark-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-varient: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
@@ -584,7 +594,7 @@ main .recent-orders a {
 
     aside {
         position: fixed;
-        left: 0;
+        left: -100%;
         background: var(--color-dark-white);
         width: 18rem;
         z-index: 3;
@@ -592,6 +602,13 @@ main .recent-orders a {
         height: 100vh;
         padding-right: var(--card-padding);
         display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu {
+        to{
+            left: 0;
+        }        
     }
 
     aside .logo {
