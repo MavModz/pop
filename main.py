@@ -9,14 +9,17 @@ conn = mysql.connector.connect(
     host="localhost", user="root", password="", database="loan_db")
 cursor = conn.cursor()
 
+# Route for HomePage
 @app.route('/')
 def home():
     return render_template('index.html')
 
+# Route for Register
 @app.route('/register')
 def register():
     return render_template('register.html')
 
+# Route For Login
 @app.route('/login')
 def login():
     if 'user_id' not in session:
@@ -24,11 +27,13 @@ def login():
     else:
         return redirect('/dashboard')
 
+# Logout A User
 @app.route('/logout')
 def logout():
     session.pop('user_id')
     return redirect('/')
 
+# Route for dashboard
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' in session:
@@ -36,6 +41,7 @@ def dashboard():
     else:
         return redirect('/login')
 
+# VALIDATE AND LOGIN USER
 @app.route('/login_validation', methods=['POST'])
 def login_validation():
     email = request.form.get('email')
@@ -56,6 +62,7 @@ def login_validation():
     else:
         return jsonify({'status': 'failure', 'message': 'Email or password is incorrect!'})  # Return failure status and message as JSON response
 
+# REGISTER A USER
 @app.route('/add_user', methods=['POST'])
 def add_user():
     name = request.form.get('uname')
@@ -75,7 +82,8 @@ def add_user():
         conn.commit()
         print('Registration successful!')
         return "success"
-
+    
+# FETCH USER NAME
 @app.route('/get_user_name')
 def get_user_name():
     if 'user_id' in session:
@@ -93,8 +101,25 @@ def get_user_name():
 # Route for admin dashboard
 @app.route('/admin')
 def admin_dashboard():
-    # Render admin dashboard template
     return render_template('admin_dashboard.html')
+
+# Fetch Users from Database
+@app.route('/user_details', methods=['GET'])
+def user_details():
+    # Fetch only the latest 6 rows from the database, ordered by a specific column in descending order
+    cursor.execute("SELECT * FROM users ORDER BY user_id DESC LIMIT 6")
+    rows = cursor.fetchall()
+    print(rows)
+    users = []
+    for row in rows:
+        user = {
+            'user_id': row[0],
+            'user_name': row[1],
+            'email': row[2],
+            'password': row[3],
+        }
+        users.append(user)
+    return jsonify(users=users)
 
 if __name__ == "__main__":
     app.run(debug=True)
