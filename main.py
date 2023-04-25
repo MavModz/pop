@@ -68,6 +68,7 @@ def add_user():
     name = request.form.get('uname')
     email = request.form.get('uemail')
     password = request.form.get('upassword')
+    role = request.form.get('urole')
 
     cursor.execute("SELECT `email` FROM `users`")
     users = cursor.fetchall()
@@ -78,7 +79,7 @@ def add_user():
         print('Email already exists!')
         return "fail"
     else:
-        cursor.execute("""INSERT INTO `users` (`user_id`, `name`, `email`, `password`) VALUES (NULL, '{}', '{}', '{}')""".format(name, email, password))
+        cursor.execute("""INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `role`) VALUES (NULL, '{}', '{}', '{}', '{}')""".format(name, email, password, role))
         conn.commit()
         print('Registration successful!')
         return "success"
@@ -109,7 +110,6 @@ def user_details():
     # Fetch only the latest 6 rows from the database, ordered by a specific column in descending order
     cursor.execute("SELECT * FROM users ORDER BY user_id DESC LIMIT 6")
     rows = cursor.fetchall()
-    print(rows)
     users = []
     for row in rows:
         user = {
@@ -117,6 +117,7 @@ def user_details():
             'user_name': row[1],
             'email': row[2],
             'password': row[3],
+            'role': row[4],
         }
         users.append(user)
     return jsonify(users=users)

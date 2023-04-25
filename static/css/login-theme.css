@@ -29,7 +29,8 @@ body {
 
 .login-container input[type="text"],
 .login-container input[type="email"],
-.login-container input[type="password"] {
+.login-container input[type="password"],
+.login-container input[type="radio"] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -37,6 +38,15 @@ body {
     background-color: #FFFFFF12;
     border: 1px solid rgba(0, 149, 255, 0);
     border-radius: 6px;
+}
+
+.login-container .radio-label {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.radio-label {
+    align-items: center;
 }
 
 .login-container button[type="submit"] {

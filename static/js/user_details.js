@@ -24,12 +24,26 @@ fetch('/user_details')
       
       const passwordCell = document.createElement('td');
       passwordCell.textContent = user.password;
+
+      const roleCell = document.createElement('td');
+      roleCell.textContent = user.role;
+
+      // Add color class based on role
+      if (user.role === 'admin') {
+        row.classList.add('primary'); // Add 'primary' color class
+      } else if (user.role === 'student') {
+        row.classList.add('warning'); // Add 'warning' color class
+      }
+      else {
+        row.classList.add('success'); // Add 'success' color class
+      }
       
       // Append table cells to the row
       row.appendChild(userIdCell);
       row.appendChild(userNameCell);
       row.appendChild(emailCell);
       row.appendChild(passwordCell);
+      row.appendChild(roleCell);
       
       // Append the row to the table body
       tableBody.appendChild(row);

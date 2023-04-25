@@ -574,6 +574,7 @@ main .recent-orders a {
         width: 83vw;
     }
 
+    main table thead tr th:last-child,
     main table thead tr th:first-child {
         display: none;
     }
@@ -606,9 +607,9 @@ main .recent-orders a {
     }
 
     @keyframes showMenu {
-        to{
+        to {
             left: 0;
-        }        
+        }
     }
 
     aside .logo {

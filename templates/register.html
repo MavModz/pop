@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login-theme.css') }}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
 
@@ -32,6 +30,10 @@
                         <input type="email" name="uemail" class="form-control mb-3" placeholder="Email" required>
                         <input type="password" name="upassword" class="form-control mb-3" placeholder="Password"
                             required>
+                        <div class="mb-3">
+                            <label class="radio-label">Teacher<input type="radio" name="urole" value="teacher"></label>
+                            <label class="radio-label">Student<input type="radio" name="urole" value="student"></label>
+                        </div>
                         <div>
                             <button id="register-btn" type="submit" class="ibtn">Register</button><a href="/login">Login
                                 instead?</a>
@@ -42,10 +44,6 @@
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script>
         var registerBtn = document.getElementById("register-btn");
         registerBtn.addEventListener("click", function (event) {
@@ -54,6 +52,7 @@
             var name = form.uname.value;
             var email = form.uemail.value;
             var password = form.upassword.value;
+            var role = form.urole.value; // Get the selected value from the radio button
 
             // Email validation using regular expression
             var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -88,7 +87,7 @@
             };
             xhttp.open("POST", "/add_user", true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("uname=" + name + "&uemail=" + email + "&upassword=" + password);
+            xhttp.send("uname=" + name + "&uemail=" + email + "&upassword=" + password + "&urole=" + role); // Pass the selected role as a parameter
         });
 
         // Function to display custom alert box with given status and message
@@ -99,7 +98,6 @@
             alertBox.classList.add(status);
             document.body.appendChild(alertBox);
         }
-
     </script>
 </body>
 
