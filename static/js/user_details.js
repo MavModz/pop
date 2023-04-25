@@ -28,14 +28,9 @@ fetch('/user_details')
       const roleCell = document.createElement('td');
       roleCell.textContent = user.role;
 
-      // Add color class based on role
-      if (user.role === 'admin') {
-        row.classList.add('primary'); // Add 'primary' color class
-      } else if (user.role === 'student') {
-        row.classList.add('warning'); // Add 'warning' color class
-      }
-      else {
-        row.classList.add('success'); // Add 'success' color class
+      // Check if the role is "admin" and set text color to the --color-success variable
+      if (user.role === "teacher") {
+        roleCell.style.color = "var(--color-primary)";
       }
       
       // Append table cells to the row
